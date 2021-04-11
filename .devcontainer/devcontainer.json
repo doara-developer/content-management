@@ -1,0 +1,29 @@
+{
+	"name": "Node.js",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "14" }
+	},
+
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
+	"extensions": [
+        "dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
+        "eamodio.gitlens",
+        "ms-ceintl.vscode-language-pack-ja",
+        "jebbs.plantuml",
+        "esbenp.prettier-vscode",
+        "octref.vetur",
+	],
+
+	"forwardPorts": [3000],
+
+	"postCreateCommand": "yarn install",
+
+	"remoteUser": "node"
+}
