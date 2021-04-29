@@ -1,4 +1,4 @@
-name: storage-bff
+name: content-management
 on: [push]
 jobs:
     lint:
