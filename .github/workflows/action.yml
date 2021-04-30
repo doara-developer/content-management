@@ -1,4 +1,4 @@
-name: content-management
+name: item-management
 on: [push]
 jobs:
     lint:
