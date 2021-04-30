@@ -8,6 +8,6 @@ export default Vue.extend({});
 </script>
 <style lang="scss" scoped>
 .item-list {
-    width: 80%;
+    width: 100%;
 }
 </style>
