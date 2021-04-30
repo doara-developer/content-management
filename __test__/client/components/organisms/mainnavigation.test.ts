@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import AppHeader from "@client/components/organisms/AppHeader.vue";
+import ItemList from "@client/components/organisms/ItemList.vue";
 
-describe("AppHeader.vue", () => {
+describe("ItemList.vue", () => {
     test("renders props.msg when passed", () => {
-        const wrapper = shallowMount(AppHeader);
+        const wrapper = shallowMount(ItemList);
         expect(wrapper).toMatchSnapshot();
     });
 });
