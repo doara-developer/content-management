@@ -3,7 +3,7 @@
         <AppHeader />
         <main>
             <MainNavigation />
-            <ItemList />
+            <ItemListContent />
         </main>
     </div>
 </template>
@@ -11,9 +11,9 @@
 import Vue from "vue";
 import AppHeader from "@client/components/organisms/AppHeader.vue";
 import MainNavigation from "@client/components/organisms/MainNavigation.vue";
-import ItemList from "@client/components/organisms/ItemList.vue";
+import ItemListContent from "@client/components/organisms/ItemListContent.vue";
 
 export default Vue.extend({
-    components: { AppHeader, MainNavigation, ItemList },
+    components: { AppHeader, MainNavigation, ItemListContent },
 });
 </script>

@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import ItemList from "@client/components/organisms/ItemList.vue";
+import MainNavigation from "@client/components/organisms/MainNavigation.vue";
 
-describe("ItemList.vue", () => {
+describe("MainNavigation.vue", () => {
     test("renders props.msg when passed", () => {
-        const wrapper = shallowMount(ItemList);
+        const wrapper = shallowMount(MainNavigation);
         expect(wrapper).toMatchSnapshot();
     });
 });

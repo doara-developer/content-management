@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ItemList.vue renders props.msg when passed 1`] = `
+exports[`MainNavigation.vue renders props.msg when passed 1`] = `
 VueWrapper {
   "_emitted": Object {},
   "_emittedByOrder": Array [],
