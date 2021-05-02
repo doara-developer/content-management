@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import { Item } from "@client/ts/stores/types";
+import { Item } from "@common/types";
 import ItemListContent from "@client/components/organisms/ItemListContent.vue";
 
 const localVue = createLocalVue();

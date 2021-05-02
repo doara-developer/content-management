@@ -1,5 +1,5 @@
 import Vuex, { Store } from "vuex";
-import { RootState, Item } from "@client/ts/stores/types";
+import { Item } from "@common/types";
 import { itemList } from "@client/ts/stores/itemList";
 import { createLocalVue } from "@vue/test-utils";
 import { cloneDeep } from "lodash";

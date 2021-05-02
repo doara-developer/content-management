@@ -1,5 +1,6 @@
 import { Module, GetterTree, MutationTree, ActionTree } from "vuex";
-import { ItemListState, RootState, Item } from "@client/ts/stores/types";
+import { ItemListState, RootState } from "@client/ts/stores/types";
+import { Item } from "@common/types";
 
 const state: ItemListState = {
     itemList: [],
@@ -13,7 +14,6 @@ const mutations: MutationTree<ItemListState> = {
     },
     add: (state, item: Item) => {
         state.itemList.push(item);
-        console.log(item);
     },
     remove: (state, id: string) => {
         state.itemList = state.itemList.filter((e: Item) => e.id !== id);
