@@ -41,7 +41,7 @@
         "@typescript-eslint/parser": "4.22.0",
         "@vue/eslint-config-prettier": "6.0.0",
         "@vue/eslint-config-typescript": "7.0.0",
-        "@vue/test-utils": "1.1.4",
+        "@vue/test-utils": "1.2.0",
         "babel-core": "6.26.3",
         "css-loader": "5.2.4",
         "eslint": "7.25.0",
