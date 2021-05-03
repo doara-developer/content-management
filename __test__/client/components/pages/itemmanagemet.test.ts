@@ -1,4 +1,3 @@
-import * as api from "@client/ts/api";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import ItemManagement from "@client/components/pages/ItemManagement.vue";
@@ -18,11 +17,6 @@ describe("ItemManagement.vue", () => {
         });
     });
     test("renders props.msg when passed", () => {
-        jest.spyOn(api, "getItems").mockReturnValueOnce(
-            Promise.resolve({
-                item_list: [],
-            })
-        );
         const wrapper = shallowMount(ItemManagement, { store, localVue });
         expect(wrapper).toMatchSnapshot();
     });

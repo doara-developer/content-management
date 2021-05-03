@@ -1,4 +1,5 @@
 import Vuex, { Store } from "vuex";
+import * as api from "@client/ts/api";
 import { Item } from "@common/types";
 import { itemList } from "@client/ts/stores/itemList";
 import { createLocalVue } from "@vue/test-utils";
@@ -7,7 +8,7 @@ import { cloneDeep } from "lodash";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("store/count.js", () => {
+describe("store/itemList.ts", () => {
     let store: any;
     beforeEach(() => {
         store = new Vuex.Store({
@@ -15,14 +16,19 @@ describe("store/count.js", () => {
         });
     });
     describe("actions", () => {
-        test("update", () => {
+        test("update", async () => {
             const items: Item[] = [
                 {
                     id: "1",
                     name: "dummyItem",
                 },
             ];
-            store.dispatch("itemList/update", items);
+            jest.spyOn(api, "getItems").mockReturnValueOnce(
+                Promise.resolve({
+                    item_list: items,
+                })
+            );
+            await store.dispatch("itemList/update");
             expect(store.state.itemList.itemList.length).toBe(1);
         });
         test("add", () => {

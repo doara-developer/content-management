@@ -1,6 +1,7 @@
 import { Module, GetterTree, MutationTree, ActionTree } from "vuex";
 import { ItemListState, RootState } from "@client/ts/stores/types";
 import { Item } from "@common/types";
+import { getItems } from "@client/ts/api";
 
 const state: ItemListState = {
     itemList: [],
@@ -21,8 +22,9 @@ const mutations: MutationTree<ItemListState> = {
 };
 
 const actions: ActionTree<ItemListState, RootState> = {
-    update: async ({ commit }, itemList: Item[]) => {
-        commit("update", itemList);
+    update: async ({ commit }) => {
+        const res = await getItems();
+        commit("update", res.item_list);
     },
     add: async ({ commit }, item: Item) => {
         commit("add", item);
