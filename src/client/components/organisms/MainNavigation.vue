@@ -6,17 +6,14 @@
 <script lang="ts">
 import Vue from "vue";
 import AppButton from "@client/components/atoms/AppButton.vue";
-import { Item } from "@common/types";
+import { addItem } from "@client/ts/api";
 
 export default Vue.extend({
     components: { AppButton },
     methods: {
-        add() {
-            const item: Item = {
-                id: "1",
-                name: "dummy_item",
-            };
-            this.$store.dispatch("itemList/add", item);
+        async add() {
+            await addItem("dummy_item");
+            await this.$store.dispatch("itemList/update");
         },
     },
 });
