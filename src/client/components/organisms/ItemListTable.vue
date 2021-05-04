@@ -30,15 +30,16 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .item-list-table {
     width: 80%;
-    border-radius: 5px;
-    border: 1px solid #ded5c0;
+    border-radius: $table-border-radius;
+    border: $table-border;
 }
 .item-list-header {
     @include display-flex($justify: flex-start);
     width: 100%;
-    background-color: #efe1be;
+    background-color: $table-header-color;
     color: #401c00;
-    border-radius: 5px 5px 0px 0px;
+    border-top-left-radius: $table-border-radius;
+    border-top-right-radius: $table-border-radius;
     padding: 5px;
 }
 .item-list-table-content {

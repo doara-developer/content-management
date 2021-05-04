@@ -1,6 +1,6 @@
 <template>
     <div class="main-navigation">
-        <AppButton @click="add">追加</AppButton>
+        <AppButton @click="registraion">登録</AppButton>
     </div>
 </template>
 <script lang="ts">
@@ -11,9 +11,8 @@ import { addItem } from "@client/ts/api";
 export default Vue.extend({
     components: { AppButton },
     methods: {
-        async add() {
-            await addItem("dummy_item");
-            await this.$store.dispatch("itemList/update");
+        registraion() {
+            this.$emit("registraion");
         },
     },
 });
