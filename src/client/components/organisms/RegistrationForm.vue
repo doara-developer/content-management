@@ -38,7 +38,6 @@ export default Vue.extend({
             this.$emit("close");
         },
         changeName(value: string) {
-            console.log(value);
             this.name = value;
         },
     },
