@@ -1,4 +1,4 @@
-import { getItems } from "@client/ts/api";
+import { getItems, addItem } from "@client/ts/api";
 
 global.fetch = jest.fn();
 describe("api.ts", () => {
@@ -20,6 +20,17 @@ describe("api.ts", () => {
             );
             const res = await getItems();
             expect(res).toBe(dummy_response);
+        });
+    });
+    describe("addItem", () => {
+        test("normal", async () => {
+            const dummy_response_json = {
+                json: () => Promise.resolve({}),
+            };
+            (jest.spyOn(global, "fetch") as any).mockImplementation(() =>
+                Promise.resolve(dummy_response_json)
+            );
+            await addItem("dummy_name");
         });
     });
 });
