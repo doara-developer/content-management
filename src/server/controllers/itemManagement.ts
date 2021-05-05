@@ -1,9 +1,9 @@
 import { Item } from "@common/types";
 
-const itemList: Item[] = [
+let itemList: Item[] = [
     {
         id: "1234",
-        name: "server_name",
+        name: "ゴミ袋",
     },
 ];
 export default class ItemManagement {
@@ -17,5 +17,8 @@ export default class ItemManagement {
             id: generatedId,
             name,
         });
+    }
+    deleteItem(id: string) {
+        itemList = itemList.filter((item) => item.id !== id);
     }
 }

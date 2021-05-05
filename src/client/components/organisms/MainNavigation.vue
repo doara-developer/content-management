@@ -6,7 +6,6 @@
 <script lang="ts">
 import Vue from "vue";
 import AppButton from "@client/components/atoms/AppButton.vue";
-import { addItem } from "@client/ts/api";
 
 export default Vue.extend({
     components: { AppButton },

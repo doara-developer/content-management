@@ -1,6 +1,6 @@
 import express from "express";
 import logger from "./logger";
-import { getItems, addItem } from "@server/views/items";
+import { getItems, addItem, deleteItem } from "@server/views/items";
 
 const app: express.Express = express();
 
@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.get("/items", getItems);
 app.post("/items", addItem);
+app.delete("/items/:itemId", deleteItem);
 
 app.get("*", (req, res) => {
     res.sendFile("index.html", { root: clientRootPath });

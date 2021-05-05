@@ -17,3 +17,9 @@ export const addItem = async (name: string) => {
         }),
     });
 };
+
+export const deleteItem = async (id: string) => {
+    const res = await fetch("/items/" + id, {
+        method: "DELETE",
+    });
+};

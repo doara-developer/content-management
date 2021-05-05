@@ -12,17 +12,28 @@
         >
             <div class="item-list-name">{{ item.name }}</div>
             <div class="item-list-date"></div>
-            <div class="item-list-action"></div>
+            <div class="item-list-action">
+                <AppButton @click="deleteItem(item.id)">削除</AppButton>
+            </div>
         </div>
     </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
+import AppButton from "@client/components/atoms/AppButton.vue";
+import { deleteItem } from "@client/ts/api";
 
 export default Vue.extend({
+    components: { AppButton },
     computed: {
         itemList() {
             return this.$store.state.itemList.itemList;
+        },
+    },
+    methods: {
+        async deleteItem(id: string) {
+            await deleteItem(id);
+            await this.$store.dispatch("itemList/update");
         },
     },
 });
