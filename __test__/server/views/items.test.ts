@@ -1,7 +1,5 @@
 import { mockReq, mockRes } from "sinon-express-mock";
-import { Request, Response } from "express";
 import { getItems, addItem, deleteItem } from "@server/views/items";
-import ItemManagement from "@server/controllers/itemManagement";
 
 jest.mock("@server/controllers/itemManagement");
 
