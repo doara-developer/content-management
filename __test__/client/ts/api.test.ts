@@ -1,4 +1,4 @@
-import { getItems, addItem } from "@client/ts/api";
+import { getItems, addItem, updateItem, deleteItem } from "@client/ts/api";
 
 global.fetch = jest.fn();
 describe("api.ts", () => {
@@ -32,6 +32,30 @@ describe("api.ts", () => {
                 Promise.resolve(dummy_response_json)
             );
             await addItem("dummy_name", "2021-05-21");
+        });
+    });
+    describe("updateItem", () => {
+        test("normal", async () => {
+            const dummy_response_json = {
+                json: () => Promise.resolve({}),
+            };
+            (jest.spyOn(global, "fetch") as any).mockImplementation(() =>
+                Promise.resolve(dummy_response_json)
+            );
+            await updateItem({
+                id: "dummyId",
+                name: "dummyName",
+                purchaseDate: "2021-05-09",
+            });
+        });
+    });
+    describe("deleteItem", () => {
+        test("normal", async () => {
+            const dummy_response_json = {};
+            (jest.spyOn(global, "fetch") as any).mockImplementation(() =>
+                Promise.resolve(dummy_response_json)
+            );
+            await deleteItem("id");
         });
     });
 });

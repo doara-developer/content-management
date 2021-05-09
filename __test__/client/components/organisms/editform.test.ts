@@ -1,11 +1,11 @@
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import Vuex from "vuex";
-import RegistrationForm from "@client/components/organisms/RegistrationForm.vue";
+import EditForm from "@client/components/organisms/EditForm.vue";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("RegistrationForm.vue", () => {
+describe("EditForm.vue", () => {
     let wrapper: any;
     beforeEach(() => {
         const store = new Vuex.Store({
@@ -15,7 +15,17 @@ describe("RegistrationForm.vue", () => {
                 "dialog/close": jest.fn(),
             },
         });
-        wrapper = shallowMount(RegistrationForm, { localVue, store });
+        wrapper = shallowMount(EditForm, {
+            localVue,
+            store,
+            propsData: {
+                item: {
+                    id: "dummyId",
+                    name: "dummyName",
+                    purchaseDate: "2021-05-21",
+                },
+            },
+        });
     });
     test("renders props.msg when passed", () => {
         expect(wrapper).toMatchSnapshot();
@@ -24,13 +34,13 @@ describe("RegistrationForm.vue", () => {
         wrapper.vm.close();
     });
     test("changeName()", () => {
-        const dummyName = "dummyName";
+        const dummyName = "dummyChangedName";
         wrapper.vm.changeName(dummyName);
-        expect(wrapper.vm.name).toBe(dummyName);
+        expect(wrapper.vm.formItem.name).toBe(dummyName);
     });
     test("changePurchaseDate()", () => {
-        const dummyDate = "2021-05-21";
+        const dummyDate = "2021-05-22";
         wrapper.vm.changePurchaseDate(dummyDate);
-        expect(wrapper.vm.purchaseDate).toBe(dummyDate);
+        expect(wrapper.vm.formItem.purchaseDate).toBe(dummyDate);
     });
 });

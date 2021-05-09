@@ -8,7 +8,13 @@ localVue.use(Vuex);
 describe("MainNavigation.vue", () => {
     let wrapper: any;
     beforeEach(() => {
-        wrapper = shallowMount(MainNavigation, { localVue });
+        const store = new Vuex.Store({
+            state: {},
+            actions: {
+                "dialog/openRegistrationForm": jest.fn(),
+            },
+        });
+        wrapper = shallowMount(MainNavigation, { localVue, store });
     });
     test("renders props.msg when passed", () => {
         expect(wrapper).toMatchSnapshot();

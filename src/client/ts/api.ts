@@ -1,4 +1,4 @@
-import { GetItemsResponse } from "@common/types";
+import { GetItemsResponse, Item } from "@common/types";
 
 export const getItems = async () => {
     const res = await fetch("/items");
@@ -19,8 +19,22 @@ export const addItem = async (name: string, purchaseDate: string) => {
     });
 };
 
+export const updateItem = async (item: Item) => {
+    const res = await fetch("/items/" + item.id, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name: item.name,
+            purchaseDate: item.purchaseDate,
+        }),
+    });
+};
+
 export const deleteItem = async (id: string) => {
-    const res = await fetch("/items/" + id, {
+    await fetch("/items/" + id, {
         method: "DELETE",
     });
 };

@@ -23,6 +23,9 @@ describe("ItemListTable.vue", () => {
                     itemList: dummyItemList,
                 },
             },
+            actions: {
+                "dialog/openEditForm": jest.fn(),
+            },
         });
     });
     test("renders props.msg when passed", () => {

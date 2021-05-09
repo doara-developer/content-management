@@ -41,7 +41,7 @@ describe("store/itemList.ts", () => {
             store.dispatch("itemList/add", item);
             expect(store.state.itemList.itemList.length).toBe(1);
         });
-        test("add", () => {
+        test("remove", () => {
             const items: Item[] = [
                 {
                     id: "1",

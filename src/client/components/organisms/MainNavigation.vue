@@ -11,7 +11,7 @@ export default Vue.extend({
     components: { AppButton },
     methods: {
         registraion() {
-            this.$emit("registraion");
+            this.$store.dispatch("dialog/openRegistrationForm");
         },
     },
 });

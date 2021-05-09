@@ -13,6 +13,7 @@
             <div class="item-list-name">{{ item.name }}</div>
             <div class="item-list-date">{{ item.purchaseDate }}</div>
             <div class="item-list-action">
+                <AppButton @click="editItem(item)">編集</AppButton>
                 <AppButton @click="deleteItem(item.id)">削除</AppButton>
             </div>
         </div>
@@ -22,6 +23,7 @@
 import Vue from "vue";
 import AppButton from "@client/components/atoms/AppButton.vue";
 import { deleteItem } from "@client/ts/api";
+import { Item } from "@common/types";
 
 export default Vue.extend({
     components: { AppButton },
@@ -34,6 +36,9 @@ export default Vue.extend({
         async deleteItem(id: string) {
             await deleteItem(id);
             await this.$store.dispatch("itemList/update");
+        },
+        async editItem(item: Item) {
+            await this.$store.dispatch("dialog/openEditForm", { item });
         },
     },
 });

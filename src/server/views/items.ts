@@ -17,6 +17,15 @@ export const addItem = async (req: Request, res: Response): Promise<void> => {
     res.status(201).end();
 };
 
+export const updateItem = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    const manager = new ItemManagement();
+    manager.updateItem(req.params.itemId, req.body.name, req.body.purchaseDate);
+    res.status(200).end();
+};
+
 export const deleteItem = async (
     req: Request,
     res: Response

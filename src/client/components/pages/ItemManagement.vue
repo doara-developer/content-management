@@ -2,12 +2,10 @@
     <div>
         <AppHeader />
         <main>
-            <MainNavigation @registraion="openRegistration" />
+            <MainNavigation />
             <ItemListContent />
-            <RegistrationForm
-                v-if="registrationDialog"
-                @close="closeRegistration"
-            />
+            <RegistrationForm v-if="isRegistrationForm" />
+            <EditForm v-if="isEditForm" :item="dialogData" />
         </main>
     </div>
 </template>
@@ -17,10 +15,8 @@ import AppHeader from "@client/components/organisms/AppHeader.vue";
 import MainNavigation from "@client/components/organisms/MainNavigation.vue";
 import ItemListContent from "@client/components/organisms/ItemListContent.vue";
 import RegistrationForm from "@client/components/organisms/RegistrationForm.vue";
-
-type DataType = {
-    registrationDialog: boolean;
-};
+import EditForm from "@client/components/organisms/EditForm.vue";
+import { DialogTypeEnum } from "@client/ts/stores/types";
 
 export default Vue.extend({
     components: {
@@ -28,21 +24,23 @@ export default Vue.extend({
         MainNavigation,
         ItemListContent,
         RegistrationForm,
-    },
-    data(): DataType {
-        return {
-            registrationDialog: false,
-        };
+        EditForm,
     },
     async mounted() {
         await this.$store.dispatch("itemList/update");
     },
-    methods: {
-        openRegistration() {
-            this.registrationDialog = true;
+    computed: {
+        isRegistrationForm() {
+            return (
+                this.$store.state.dialog.type ===
+                DialogTypeEnum.RegistrationForm
+            );
         },
-        closeRegistration() {
-            this.registrationDialog = false;
+        isEditForm() {
+            return this.$store.state.dialog.type === DialogTypeEnum.EditForm;
+        },
+        dialogData() {
+            return this.$store.state.dialog.data.item;
         },
     },
 });
