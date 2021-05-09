@@ -19,6 +19,7 @@ describe("ItemManagement", () => {
             const dummyBody = {
                 body: {
                     name: "dummyName",
+                    purchaseDate: "2021-05-21",
                 },
             };
             const dummyReq = mockReq(dummyBody);

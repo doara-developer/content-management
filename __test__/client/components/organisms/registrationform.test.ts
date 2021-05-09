@@ -22,4 +22,9 @@ describe("RegistrationForm.vue", () => {
         wrapper.vm.changeName(dummyName);
         expect(wrapper.vm.name).toBe(dummyName);
     });
+    test("changePurchaseDate()", () => {
+        const dummyDate = "2021-05-21";
+        wrapper.vm.changePurchaseDate(dummyDate);
+        expect(wrapper.vm.purchaseDate).toBe(dummyDate);
+    });
 });

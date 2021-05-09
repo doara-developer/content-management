@@ -21,6 +21,7 @@ describe("store/itemList.ts", () => {
                 {
                     id: "1",
                     name: "dummyItem",
+                    purchaseDate: "2021-05-21",
                 },
             ];
             jest.spyOn(api, "getItems").mockReturnValueOnce(
@@ -35,6 +36,7 @@ describe("store/itemList.ts", () => {
             const item: Item = {
                 id: "1",
                 name: "dummyItem",
+                purchaseDate: "2021-05-21",
             };
             store.dispatch("itemList/add", item);
             expect(store.state.itemList.itemList.length).toBe(1);
@@ -44,6 +46,7 @@ describe("store/itemList.ts", () => {
                 {
                     id: "1",
                     name: "dummyItem",
+                    purchaseDate: "2021-05-21",
                 },
             ];
             store.state.itemList.itemList = items;

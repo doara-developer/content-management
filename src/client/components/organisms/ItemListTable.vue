@@ -11,7 +11,7 @@
             class="item-list-table-content"
         >
             <div class="item-list-name">{{ item.name }}</div>
-            <div class="item-list-date"></div>
+            <div class="item-list-date">{{ item.purchaseDate }}</div>
             <div class="item-list-action">
                 <AppButton @click="deleteItem(item.id)">削除</AppButton>
             </div>

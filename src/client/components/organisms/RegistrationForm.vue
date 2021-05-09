@@ -4,6 +4,9 @@
             <div class="registration-form-header">日用品登録</div>
             <div class="registration-form-content">
                 <TextForm :value="name" @change="changeName">名前</TextForm>
+                <DateForm :value="purchaseDate" @change="changePurchaseDate"
+                    >購入日</DateForm
+                >
             </div>
             <div class="registration-form-action">
                 <AppButton @click="add">登録</AppButton>
@@ -16,21 +19,24 @@
 import Vue from "vue";
 import AppButton from "@client/components/atoms/AppButton.vue";
 import TextForm from "@client/components/molecules/TextForm.vue";
+import DateForm from "@client/components/molecules/DateForm.vue";
 import { addItem } from "@client/ts/api";
 
 type DataType = {
     name: string;
+    purchaseDate: string;
 };
 export default Vue.extend({
-    components: { AppButton, TextForm },
+    components: { AppButton, TextForm, DateForm },
     data(): DataType {
         return {
             name: "",
+            purchaseDate: "",
         };
     },
     methods: {
         async add() {
-            await addItem(this.name);
+            await addItem(this.name, this.purchaseDate);
             await this.$store.dispatch("itemList/update");
             this.$emit("close");
         },
@@ -39,6 +45,9 @@ export default Vue.extend({
         },
         changeName(value: string) {
             this.name = value;
+        },
+        changePurchaseDate(value: string) {
+            this.purchaseDate = value;
         },
     },
 });
@@ -66,7 +75,6 @@ export default Vue.extend({
 }
 .registration-form-content {
     height: 200px;
-    @include display-flex();
 }
 .registration-form-action {
     @include display-flex();

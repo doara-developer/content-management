@@ -11,7 +11,7 @@ describe("ItemManagement", () => {
     describe("addItem", () => {
         test("Normal test", () => {
             const controller = new ItemManagement();
-            controller.addItem("dummyItem");
+            controller.addItem("dummyItem", "2021-05-21");
         });
     });
     describe("deleteItem", () => {

@@ -14,6 +14,7 @@ describe("ItemListTable.vue", () => {
             {
                 id: "123",
                 name: "dummy_item",
+                purchaseDate: "2021-05-21",
             },
         ];
         store = new Vuex.Store({

@@ -9,6 +9,7 @@ describe("api.ts", () => {
                     {
                         id: "dummy_id",
                         name: "dummy_name",
+                        purchaseDate: "2021-05-21",
                     },
                 ],
             };
@@ -30,7 +31,7 @@ describe("api.ts", () => {
             (jest.spyOn(global, "fetch") as any).mockImplementation(() =>
                 Promise.resolve(dummy_response_json)
             );
-            await addItem("dummy_name");
+            await addItem("dummy_name", "2021-05-21");
         });
     });
 });

@@ -5,7 +5,7 @@ export const getItems = async () => {
     return res.json() as Promise<GetItemsResponse>;
 };
 
-export const addItem = async (name: string) => {
+export const addItem = async (name: string, purchaseDate: string) => {
     const res = await fetch("/items", {
         method: "POST",
         headers: {
@@ -14,6 +14,7 @@ export const addItem = async (name: string) => {
         },
         body: JSON.stringify({
             name,
+            purchaseDate,
         }),
     });
 };

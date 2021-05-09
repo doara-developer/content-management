@@ -13,7 +13,7 @@ export const getItems = async (req: Request, res: Response): Promise<void> => {
 
 export const addItem = async (req: Request, res: Response): Promise<void> => {
     const manager = new ItemManagement();
-    manager.addItem(req.body.name);
+    manager.addItem(req.body.name, req.body.purchaseDate);
     res.status(201).end();
 };
 
