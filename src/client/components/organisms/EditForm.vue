@@ -85,7 +85,7 @@ export default Vue.extend({
     @include display-flex();
     width: 100%;
     background-color: $table-header-color;
-    color: #401c00;
+    color: $font-color;
     border-top-left-radius: $table-border-radius;
     border-top-right-radius: $table-border-radius;
     padding: 5px;

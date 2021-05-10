@@ -53,7 +53,7 @@ export default Vue.extend({
     @include display-flex($justify: flex-start);
     width: 100%;
     background-color: $table-header-color;
-    color: #401c00;
+    color: $font-color;
     border-top-left-radius: $table-border-radius;
     border-top-right-radius: $table-border-radius;
     padding: 5px;
@@ -61,7 +61,7 @@ export default Vue.extend({
 .item-list-table-content {
     @include display-flex($justify: flex-start);
     width: 100%;
-    color: #401c00;
+    color: $font-color;
     padding: 5px;
     border-bottom: 1px solid #ded5c0;
 }
