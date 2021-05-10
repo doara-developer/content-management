@@ -1,5 +1,7 @@
 <template>
-    <h1 class="app-title"><slot /></h1>
+    <a href="/">
+        <h1 class="app-title"><slot /></h1>
+    </a>
 </template>
 <script lang="ts">
 import Vue from "vue";
