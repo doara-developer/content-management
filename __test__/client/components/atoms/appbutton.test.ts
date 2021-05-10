@@ -8,7 +8,10 @@ localVue.use(Vuex);
 describe("AppButton.vue", () => {
     let wrapper: any;
     beforeEach(() => {
-        wrapper = shallowMount(AppButton, { localVue });
+        wrapper = shallowMount(AppButton, {
+            localVue,
+            slots: { default: "test" },
+        });
     });
     test("renders props.msg when passed", () => {
         expect(wrapper).toMatchSnapshot();
