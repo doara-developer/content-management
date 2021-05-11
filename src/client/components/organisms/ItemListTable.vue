@@ -45,7 +45,7 @@ export default Vue.extend({
 </script>
 <style lang="scss" scoped>
 .item-list-table {
-    width: 80%;
+    width: 90%;
     border-radius: $table-border-radius;
     border: $table-border;
 }
