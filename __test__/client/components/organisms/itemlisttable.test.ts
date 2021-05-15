@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import { Item } from "@common/types";
+import { Item, CheckedStatusEnum } from "@common/types";
 import ItemListTable from "@client/components/organisms/ItemListTable.vue";
 
 const localVue = createLocalVue();
@@ -13,6 +13,7 @@ describe("ItemListTable.vue", () => {
         const dummyItemList: Item[] = [
             {
                 id: "123",
+                status: CheckedStatusEnum.Checked,
                 name: "dummy_item",
                 purchaseDate: "2021-05-21",
             },

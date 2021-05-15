@@ -1,9 +1,10 @@
-import { Item } from "@common/types";
+import { Item, CheckedStatusEnum } from "@common/types";
 import logger from "@server/logger";
 
 let itemList: Item[] = [
     {
         id: "1234",
+        status: CheckedStatusEnum.Must,
         name: "ゴミ袋",
         purchaseDate: "2021-05-21",
     },
@@ -17,6 +18,7 @@ export default class ItemManagement {
         const generatedId = Math.random().toString(32).substring(2);
         itemList.push({
             id: generatedId,
+            status: CheckedStatusEnum.None,
             name,
             purchaseDate,
         });

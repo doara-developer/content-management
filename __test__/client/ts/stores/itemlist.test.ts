@@ -1,6 +1,6 @@
 import Vuex, { Store } from "vuex";
 import * as api from "@client/ts/api";
-import { Item } from "@common/types";
+import { Item, CheckedStatusEnum } from "@common/types";
 import { itemList } from "@client/ts/stores/itemList";
 import { createLocalVue } from "@vue/test-utils";
 import { cloneDeep } from "lodash";
@@ -20,6 +20,7 @@ describe("store/itemList.ts", () => {
             const items: Item[] = [
                 {
                     id: "1",
+                    status: CheckedStatusEnum.None,
                     name: "dummyItem",
                     purchaseDate: "2021-05-21",
                 },
@@ -35,6 +36,7 @@ describe("store/itemList.ts", () => {
         test("add", () => {
             const item: Item = {
                 id: "1",
+                status: CheckedStatusEnum.Checked,
                 name: "dummyItem",
                 purchaseDate: "2021-05-21",
             };
@@ -45,6 +47,7 @@ describe("store/itemList.ts", () => {
             const items: Item[] = [
                 {
                     id: "1",
+                    status: CheckedStatusEnum.Must,
                     name: "dummyItem",
                     purchaseDate: "2021-05-21",
                 },

@@ -1,4 +1,5 @@
 import { getItems, addItem, updateItem, deleteItem } from "@client/ts/api";
+import { CheckedStatusEnum } from "@common/types";
 
 global.fetch = jest.fn();
 describe("api.ts", () => {
@@ -8,6 +9,7 @@ describe("api.ts", () => {
                 item_list: [
                     {
                         id: "dummy_id",
+                        status: CheckedStatusEnum.Must,
                         name: "dummy_name",
                         purchaseDate: "2021-05-21",
                     },
@@ -44,6 +46,7 @@ describe("api.ts", () => {
             );
             await updateItem({
                 id: "dummyId",
+                status: CheckedStatusEnum.None,
                 name: "dummyName",
                 purchaseDate: "2021-05-09",
             });

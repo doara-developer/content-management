@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import { DialogTypeEnum } from "@client/ts/stores/types";
-import { Item } from "@common/types";
+import { Item, CheckedStatusEnum } from "@common/types";
 import { dialog } from "@client/ts/stores/dialog";
 import { createLocalVue } from "@vue/test-utils";
 import { cloneDeep } from "lodash";
@@ -31,6 +31,7 @@ describe("store/dialog.ts", () => {
         test("openEditForm", () => {
             const item: Item = {
                 id: "1",
+                status: CheckedStatusEnum.None,
                 name: "dummyItem",
                 purchaseDate: "2021-05-21",
             };

@@ -11,6 +11,7 @@
                     @change="changePurchaseDate"
                     >購入日</DateForm
                 >
+                <div>{{ formItem.status }}</div>
             </div>
             <div class="edit-form-action">
                 <AppButton @click="update">更新</AppButton>
@@ -25,7 +26,7 @@ import AppButton from "@client/components/atoms/AppButton.vue";
 import TextForm from "@client/components/molecules/TextForm.vue";
 import DateForm from "@client/components/molecules/DateForm.vue";
 import { updateItem } from "@client/ts/api";
-import { Item } from "@common/types";
+import { Item, CheckedStatusEnum } from "@common/types";
 
 type DataType = {
     formItem: Item;
@@ -41,6 +42,7 @@ export default Vue.extend({
         return {
             formItem: {
                 id: "",
+                status: CheckedStatusEnum.None,
                 name: "",
                 purchaseDate: "",
             },
@@ -48,6 +50,7 @@ export default Vue.extend({
     },
     mounted() {
         this.formItem.id = this.item.id;
+        this.formItem.status = this.item.status;
         this.formItem.name = this.item.name;
         this.formItem.purchaseDate = this.item.purchaseDate;
     },
