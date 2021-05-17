@@ -29,6 +29,7 @@ export const updateItem = async (item: Item) => {
         body: JSON.stringify({
             name: item.name,
             purchaseDate: item.purchaseDate,
+            status: item.status,
         }),
     });
 };

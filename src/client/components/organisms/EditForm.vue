@@ -11,7 +11,12 @@
                     @change="changePurchaseDate"
                     >購入日</DateForm
                 >
-                <div>{{ formItem.status }}</div>
+                <SelectForm
+                    :value="formItem.status"
+                    :options="checkedStatusOptions"
+                    @change="changeCheckedStatus"
+                    >買い物チェック</SelectForm
+                >
             </div>
             <div class="edit-form-action">
                 <AppButton @click="update">更新</AppButton>
@@ -25,14 +30,22 @@ import Vue from "vue";
 import AppButton from "@client/components/atoms/AppButton.vue";
 import TextForm from "@client/components/molecules/TextForm.vue";
 import DateForm from "@client/components/molecules/DateForm.vue";
+import SelectForm from "@client/components/molecules/SelectForm.vue";
 import { updateItem } from "@client/ts/api";
-import { Item, CheckedStatusEnum } from "@common/types";
+import {
+    Item,
+    CheckedStatusEnum,
+    CheckedStatusEnumType,
+    OptionType,
+} from "@common/types";
 
 type DataType = {
     formItem: Item;
+    checkedStatusOptions: OptionType[];
 };
+
 export default Vue.extend({
-    components: { AppButton, TextForm, DateForm },
+    components: { AppButton, TextForm, DateForm, SelectForm },
     props: {
         item: {
             type: Object as () => Item,
@@ -46,9 +59,23 @@ export default Vue.extend({
                 name: "",
                 purchaseDate: "",
             },
+            checkedStatusOptions: [
+                {
+                    label: "Must",
+                    value: CheckedStatusEnum.Must,
+                },
+                {
+                    label: "Checked",
+                    value: CheckedStatusEnum.Checked,
+                },
+                {
+                    label: "None",
+                    value: CheckedStatusEnum.None,
+                },
+            ],
         };
     },
-    mounted() {
+    created() {
         this.formItem.id = this.item.id;
         this.formItem.status = this.item.status;
         this.formItem.name = this.item.name;
@@ -68,6 +95,9 @@ export default Vue.extend({
         },
         changePurchaseDate(value: string) {
             this.formItem.purchaseDate = value;
+        },
+        changeCheckedStatus(value: CheckedStatusEnumType) {
+            this.formItem.status = value;
         },
     },
 });

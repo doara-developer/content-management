@@ -22,7 +22,12 @@ export const updateItem = async (
     res: Response
 ): Promise<void> => {
     const manager = new ItemManagement();
-    manager.updateItem(req.params.itemId, req.body.name, req.body.purchaseDate);
+    manager.updateItem(
+        req.params.itemId,
+        req.body.name,
+        req.body.purchaseDate,
+        req.body.status
+    );
     res.status(200).end();
 };
 

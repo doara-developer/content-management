@@ -17,3 +17,8 @@ export const CheckedStatusEnum = {
 
 export type CheckedStatusEnumType =
     typeof CheckedStatusEnum[keyof typeof CheckedStatusEnum];
+
+export type OptionType = {
+    value: string;
+    label: string;
+};

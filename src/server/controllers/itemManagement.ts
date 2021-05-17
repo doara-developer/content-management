@@ -1,4 +1,4 @@
-import { Item, CheckedStatusEnum } from "@common/types";
+import { Item, CheckedStatusEnum, CheckedStatusEnumType } from "@common/types";
 import logger from "@server/logger";
 
 let itemList: Item[] = [
@@ -23,11 +23,17 @@ export default class ItemManagement {
             purchaseDate,
         });
     }
-    updateItem(id: string, name: string, purchaseDate: string) {
+    updateItem(
+        id: string,
+        name: string,
+        purchaseDate: string,
+        status: CheckedStatusEnumType
+    ) {
         const item = itemList.find((item) => item.id === id);
         if (item) {
             item.name = name;
             item.purchaseDate = purchaseDate;
+            item.status = status;
             logger.info(id + " was updated.");
         } else {
             logger.error(id + " is not found.");

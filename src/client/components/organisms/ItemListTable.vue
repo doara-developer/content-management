@@ -3,6 +3,7 @@
         <div class="item-list-header">
             <div class="item-list-name">名前</div>
             <div class="item-list-date">最終購入日</div>
+            <div class="item-list-status">ステータス</div>
             <div class="item-list-action">操作</div>
         </div>
         <div
@@ -12,6 +13,7 @@
         >
             <div class="item-list-name">{{ item.name }}</div>
             <div class="item-list-date">{{ item.purchaseDate }}</div>
+            <div class="item-list-status">{{ item.status }}</div>
             <div class="item-list-action">
                 <AppButton @click="editItem(item)">編集</AppButton>
                 <AppButton @click="deleteItem(item.id)">削除</AppButton>
@@ -66,7 +68,10 @@ export default Vue.extend({
     border-bottom: 1px solid #ded5c0;
 }
 .item-list-name {
-    width: 50%;
+    width: 40%;
+}
+.item-list-status {
+    width: 10%;
 }
 .item-list-date {
     width: 30%;
